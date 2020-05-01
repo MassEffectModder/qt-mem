@@ -1,0 +1,12 @@
+This is MSYS2 Qt5 package customised for MEM.
+
+Requirements:
+ - MSYS2 x86_64
+ - DirectX Shader Compiler 'fxc.exe' from DirectX9 SDK or Windows 10 SDK
+
+Installation:
+ - Install MSYS2 x86_64 using MSYS2 installer.
+ - Copy 'fxc.exe' to directory on the %PATH% variable or add 'fxc.exe' path to %PATH% variable.
+ - Run 'MSYS2 Mingw 64-bit' shell.
+ - From shell: enter this repositorium directory, then 'qt-5.12' directory.
+ - From shell: run command 'makepkg-mingw -fsiL' to build a binary package.
