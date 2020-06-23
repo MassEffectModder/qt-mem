@@ -24,7 +24,7 @@ _make=make
 _realname=qt5${_namesuff}
 pkgbase="mingw-w64-${_realname}"
 pkgname="${MINGW_PACKAGE_PREFIX}-${_realname}"
-_ver_base=5.12.8
+_ver_base=5.12.9
 _hotfix=
 pkgver=${_ver_base//-/}
 pkgrel=1
@@ -407,7 +407,7 @@ package() {
       -exec sed -i -e "s|${MINGW_PREFIX_WIN}|${PKGDIR_QT_PREFIX_WIN}/..|g" {} \;
 }
 
-sha256sums=('9142300dfbd641ebdea853546511a352e4bd547c4c7f25d61a40cd997af1f0cf'
+sha256sums=('a628186814b73e93594ee8e72f975116599f946919ae6bd86611981b739acff0'
             'fabc14c5e854a17f1fdfb6575e0950b1f6e8b0f4ee36cca0c017994b4070ecac'
             '617e6fa85a92353d0073425d37cd5d90d92cb7f906d66dd2d0df576122d091a4'
             '27ce2161b5dbea2fcce6b15948ab722a71036d056420854f6554969f683583bb'
