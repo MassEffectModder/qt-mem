@@ -9,7 +9,7 @@ This is MSYS2 Qt5 package customised for MEM.
  - Copy 'fxc.exe' to directory on the %PATH% variable or add 'fxc.exe' path to %PATH% variable.
  - Run 'MSYS2 Mingw 64-bit' shell.
  - From shell: enter this repositorium directory, then 'qt-5.12' directory.
- - From shell: run command 'makepkg-mingw -fsiL' to build a binary package.
+ - From shell: run command 'makepkg-mingw -fsiC' to build a binary package.
 
 ### Prebuilded package binary ###
 
