@@ -348,7 +348,6 @@ build() {
     "${_extra_libpaths[@]}" \
     "${_extra_libs[@]}" \
     -no-iconv \
-    -no-gstreamer \
     "${_extra_config[@]}" \
     "${_sql_config[@]}" \
     "${configure_opts[@]}"
