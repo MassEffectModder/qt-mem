@@ -13,4 +13,4 @@ This is MSYS2 Qt5 package customised for MEM.
 
 ### Prebuilded package binary ###
 
-https://www.dropbox.com/s/sf1wpyy4t2nb6q4/mingw-w64-x86_64-qt5-mem-5.12.8-1-any.pkg.tar.zst?dl=0
+https://www.dropbox.com/s/bys6xlljpr8wl1b/mingw-w64-x86_64-qt5-mem-5.12.9-1-any.pkg.tar.zst?dl=0
