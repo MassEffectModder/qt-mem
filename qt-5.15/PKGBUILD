@@ -294,6 +294,7 @@ build() {
   configure_opts+=("-skip" "qt3d")
   configure_opts+=("-skip" "qtxmlpatterns")
   configure_opts+=("-skip" "qtquickcontrols")
+  configure_opts+=("-skip" "qtquickcontrols2")
   configure_opts+=("-skip" "qtscript")
 
   configure_opts+=("-qt-freetype")
