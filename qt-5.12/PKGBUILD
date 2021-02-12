@@ -331,6 +331,7 @@ build() {
   configure_opts+=("-qt-freetype")
   configure_opts+=("-qt-harfbuzz")
   configure_opts+=("-qt-libpng")
+  configure_opts+=("-qt-libjpeg")
   configure_opts+=("-qt-zlib")
   configure_opts+=("-qt-pcre")
   configure_opts+=("-no-icu")
