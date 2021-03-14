@@ -1,7 +1,7 @@
 This is MSYS2 Qt5 package customised for MEM.
 
 ### Requirements ###
- - DirectX Shader Compiler 'fxc.exe' from DirectX9 SDK or Windows 10 SDK
+ - DirectX Shader Compiler 'fxc.exe' from Windows 10 SDK
  - MSYS2
 
 ### Installation ###
