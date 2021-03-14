@@ -7,7 +7,12 @@ _system_freetype=no
 _system_zlib=no
 _system_pcre=no
 _system_libpng=no
+_system_libjpeg=no
 _system_harfbuzz=no
+_system_assimp=no
+_system_doubleconversion=no
+_system_libtiff=no
+_system_libwebp=no
 _build_examples=no
 _build_tools=no
 _build_tests=no
@@ -49,6 +54,7 @@ makedepends=("bison"
              "make"
              "patch"
              "perl"
+             "rsync"
              "dos2unix"
              "${MINGW_PACKAGE_PREFIX}-gcc"
              "${MINGW_PACKAGE_PREFIX}-clang"
