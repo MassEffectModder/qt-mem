@@ -35,7 +35,7 @@ fi
 COMMON_OPTS="\
 -prefix $INSTALL_PATH -static -qt-zlib -qt-pcre -qt-libpng -qt-libjpeg -system-freetype -no-dbus \
 -iconv -no-icu -glib -no-cups -no-gif -no-ico -qt-harfbuzz -no-eglfs -no-gbm -no-mimetype-database \
--no-feature-relocatable -make libs -nomake examples -nomake tests -skip qt3d -skip qtactiveqt \
+-no-feature-relocatable -no-opengl -make libs -nomake examples -nomake tests -skip qt3d -skip qtactiveqt \
 -skip qtcanvas3d -skip qtcharts -skip qtconnectivity -skip qtdatavis3d -skip qtdeclarative -skip qtdoc \
 -skip gamepad -skip qtgraphicaleffects -skip qtlocation -skip qtmultimedia -skip qtnetworkauth \
 -skip qtpurchasing -skip qtquickcontrols -skip qtquickcontrols2 -skip qtremoteobjects -skip qtscript \
@@ -45,7 +45,7 @@ COMMON_OPTS="\
 
 case `uname -s` in
 	'Linux')
-		COMMON_OPTS="$COMMON_OPTS -release -iconv -glib -system-freetype -qt-doubleconversion -fontconfig -qpa xcb -xcb -xcb-native-painting"
+		COMMON_OPTS="$COMMON_OPTS -platform linux-clang -release -iconv -glib -system-freetype -qt-doubleconversion -fontconfig -qpa xcb -xcb -xcb-native-painting"
 		NUM_THREADS=`grep -c '^processor' /proc/cpuinfo`
 	;;
 	'Darwin')
