@@ -1,5 +1,5 @@
---- qiosurfacegraphicsbuffer.h.orig	2021-08-06 07:47:06.000000000 +0200
-+++ qiosurfacegraphicsbuffer.h	2022-05-14 18:36:03.000000000 +0200
+--- qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h.orig	2021-08-06 07:47:06.000000000 +0200
++++ qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h	2022-05-14 18:36:03.000000000 +0200
 @@ -43,6 +43,8 @@
  #include <qpa/qplatformgraphicsbuffer.h>
  #include <private/qcore_mac_p.h>

@@ -23,7 +23,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-QT_VERSION=5.15.4
+QT_VERSION=5.15.5
 QT_VERSION_BASE=`echo $QT_VERSION | cut -d'.' -f 1,2`
 
 NUM_THREADS=1
@@ -68,9 +68,9 @@ if [ ! -d "qt-everywhere-src-$QT_VERSION" ]; then
 		echo "ERROR: Failed to unpack Qt archive!"
 		exit 1
 	fi
-	cd qt-everywhere-src-$QT_VERSION/qtbase
-	cat ../../patches/qiosurfacegraphicsbuffer.patch | patch -p1
-	cd ../..
+	pushd qt-everywhere-src-$QT_VERSION
+	cat ../patches/qiosurfacegraphicsbuffer.patch | patch -p0
+	popd
 fi
 
 pushd qt-everywhere-src-$QT_VERSION
