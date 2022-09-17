@@ -39,7 +39,7 @@ fi
 _realname=qt5${_namesuff}
 pkgbase="mingw-w64-${_realname}"
 pkgname="${MINGW_PACKAGE_PREFIX}-${_realname}"
-_ver_base=5.15.5
+_ver_base=5.15.6
 _hotfix=
 pkgver=${_ver_base//-/}
 pkgrel=1
@@ -445,14 +445,14 @@ package() {
       -exec sed -i -e "s|${MINGW_PREFIX_WIN}|${MINGW_PREFIX}|g" {} \;
 }
 
-sha256sums=('5a97827bdf9fd515f43bc7651defaf64fecb7a55e051c79b8f80510d0e990f06'
+sha256sums=('ebc77d27934b70b25b3dc34fbec7c4471eb451848e891c42b32409ea30fe309f'
             '884b32f0e2e1bb110330a921b69443379a7be98c42f13754f9c5f56c040ba3b7'
             '617e6fa85a92353d0073425d37cd5d90d92cb7f906d66dd2d0df576122d091a4'
             '27ce2161b5dbea2fcce6b15948ab722a71036d056420854f6554969f683583bb'
             'e04033364f5ad77906b4100c34572df57bd793a55bc33b7d8a753a2cc60af259'
             '18fd2fa42215ac47b3b314261ab98cbe65f8231429e4f29a152288a3ca93daf1'
             '4e154fbc9059a096c351d019da6b18c907b1d8b06e028f48c7365f62bcd0edc9'
-            'd99a4b74a062912a6913a883655d67257715866209a5c17cf9a3e6837dbd9260'
+            '96e9c37383633461ace63c8d31f7dc3cb37ea387c435ec4222f58eaab138a69e'
             '465d3897c4494695b66ac121944b3bd370db91bfea71dd2c9170dbf268cc99ea'
             'b31929c78f9906756a5e1bdf9a796541865c474aaa1b3eefea1a3f1d7c8d94ca'
             'd8a476be7e55e8bb9362868073dc9e7937431e68b9578c0a0ed103cf1ebc8c01'

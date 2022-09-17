@@ -15,7 +15,7 @@ This is MSYS2 Qt5 package customised for MEM
 
 ### Prebuilded package binary ###
 
- - https://www.dropbox.com/s/0weqzyykumqx3ln/mingw-w64-x86_64-qt5-mem-5.15.5-1-any.pkg.tar.zst?dl=0
+ - https://www.dropbox.com/s/h0yy4r4g2nzf2l5/mingw-w64-x86_64-qt5-mem-5.15.6-1-any.pkg.tar.zst?dl=0
 
 # Linux/macOS #
 The build script 'build_unix.sh' will compile Qt5 from sources.
