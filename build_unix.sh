@@ -3,7 +3,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2021-2022 Pawel Kolodziejski
+# Copyright (c) 2021-2023 Pawel Kolodziejski
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-QT_VERSION=5.15.6
+QT_VERSION=5.15.8
 QT_VERSION_BASE=`echo $QT_VERSION | cut -d'.' -f 1,2`
 
 NUM_THREADS=1
@@ -34,12 +34,12 @@ fi
 
 COMMON_OPTS="\
 -prefix $INSTALL_PATH -static -qt-zlib -qt-pcre -qt-libpng -qt-libjpeg -system-freetype -no-dbus \
--iconv -no-icu -glib -no-cups -no-gif -no-ico -qt-harfbuzz -no-eglfs -no-gbm -no-mimetype-database \
--no-feature-relocatable -no-opengl -make libs -nomake examples -nomake tests -skip qt3d -skip qtactiveqt \
--skip qtcanvas3d -skip qtcharts -skip qtconnectivity -skip qtdatavis3d -skip qtdeclarative -skip qtdoc \
--skip gamepad -skip qtgraphicaleffects -skip qtlocation -skip qtmultimedia -skip qtnetworkauth \
--skip qtpurchasing -skip qtquickcontrols -skip qtquickcontrols2 -skip qtremoteobjects -skip qtscript \
--skip qtscxml -skip qtsensors -skip qtserialbus -skip qtserialport -skip qtspeech -skip qttools \
+-iconv -no-icu -glib -no-cups -no-gif -no-ico -qt-harfbuzz -no-eglfs -no-gbm -no-tiff -no-webp \
+-no-mimetype-database -no-feature-relocatable -no-opengl -make libs -nomake examples -nomake tests \
+-skip qt3d -skip qtactiveqt -skip qtcanvas3d -skip qtcharts -skip qtconnectivity -skip qtdatavis3d \
+-skip qtdeclarative -skip qtdoc -skip gamepad -skip qtgraphicaleffects -skip qtlocation -skip qtmultimedia \
+-skip qtnetworkauth -skip qtpurchasing -skip qtquickcontrols -skip qtquickcontrols2 -skip qtremoteobjects \
+-skip qtscript -skip qtscxml -skip qtsensors -skip qtserialbus -skip qtserialport -skip qtspeech -skip qttools \
 -skip qttranslations -skip qtvirtualkeyboard -skip qtwebengine -skip qtwebglplugin -skip qtwebsockets \
 -skip qtwebview -skip qtxmlpatterns -confirm-license -opensource"
 
@@ -69,7 +69,7 @@ if [ ! -d "qt-everywhere-src-$QT_VERSION" ]; then
 		exit 1
 	fi
 	pushd qt-everywhere-src-$QT_VERSION
-	cat ../patches/qiosurfacegraphicsbuffer.patch | patch -p0
+	#cat ../patches/qiosurfacegraphicsbuffer.patch | patch -p0
 	popd
 fi
 

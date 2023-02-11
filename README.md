@@ -8,14 +8,20 @@ This is MSYS2 Qt5 package customised for MEM
 
 ### Installation ###
  - Install MSYS2
- - Run 'MSYS2 Mingw 64-bit' shell
- - From shell install GCC x86_64 toolchan using command `pacman -S mingw-w64-x86_64-toolchain`
- From shell enter this repositorium directory and copy 'qt-5.15' to home folder using command `cp -R qt-5.15 ~/`
- - From shell enter 'qt-5.15' directory using command `cd ~/qt-5.15` and then run command `MINGW_ARCH=mingw64 makepkg-mingw -fsiL` to build a binary package.
+ - Run 'MSYS2 MINGW64' terminal
+ - From terminal install 'git' `pacman -S git`
 
-### Prebuilded package binary ###
+### Installation from sources ###
+ - Follow instructions in terminal:
+ - Clone repository `git clone https://github.com/MassEffectModder/qt-mem.git`
+ - Copy 'qt-5.15' to home folder (this is important step to avoid too long paths) `cp -R qt-mem/qt-5.15 ~/`
+ - Enter 'qt-5.15' directory `cd ~/qt-5.15`
+ - Build package `MINGW_ARCH=mingw64 makepkg-mingw -fsiL`
 
- - https://www.dropbox.com/s/h0yy4r4g2nzf2l5/mingw-w64-x86_64-qt5-mem-5.15.6-1-any.pkg.tar.zst?dl=0
+### Installation using prebuilded package ###
+ - Follow instructions in terminal:
+ - Download package `wget https://www.dropbox.com/s/zbmin2s0vxlslr8/mingw-w64-x86_64-qt5-static-mem-5.15.8-1-any.pkg.tar.zst?dl=0 -O mingw-w64-x86_64-qt5-static-mem-5.15.8-1-any.pkg.tar.zst`
+ - Install package `pacman -U mingw-w64-x86_64-qt5-static-mem-5.15.8-1-any.pkg.tar.zst`
 
 # Linux/macOS #
 The build script 'build_unix.sh' will compile Qt5 from sources.
@@ -33,6 +39,6 @@ The build script 'build_unix.sh' will compile Qt5 from sources.
 - From shell enter execute command to download build script:
 
 `wget https://raw.githubusercontent.com/MassEffectModder/qt-mem/master/build_unix.sh && chmod +x build_unix.sh`
-- From shell enter execute command to build Qt from sources, provide installation path. for example '/opt/stuff/MEM/qt-5.15.5-mem'
+- From shell enter execute command to build Qt from sources, provide installation path. for example '/opt/stuff/MEM/qt-5.15.8-mem'
 
-`./build_unix.sh /opt/stuff/MEM/qt-5.15.5-mem`
+`./build_unix.sh /opt/stuff/MEM/qt-5.15.8-mem`
