@@ -9,7 +9,7 @@ This is MSYS2 Qt5 package customised for MEM
 ### Installation ###
  - Install MSYS2
  - Run 'MSYS2 MINGW64' terminal
- - From terminal install 'git' `pacman -S git`
+ - From terminal install 'git and make' `pacman -S mingw-w64-x86_64-make`
 
 ### Installation from sources ###
  - Follow instructions in terminal:
@@ -30,15 +30,15 @@ The build script 'build_unix.sh' will compile Qt5 from sources.
 `sudo apt-get install build-essential perl python git '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev`
 
 ### Requirements macOS ###
-- Xcode
+- Xcode from AppStore or using below command from Terminal application:
 
 `xcode-select --install`
 
-### Installation ###
-- Run system Terminal appplication
-- From shell enter execute command to download build script:
+### Installation from sources ###
+- Run system terminal/console application
+- From shell execute below command to download build script:
 
 `wget https://raw.githubusercontent.com/MassEffectModder/qt-mem/master/build_unix.sh && chmod +x build_unix.sh`
-- From shell enter execute command to build Qt from sources, provide installation path. for example '/opt/stuff/MEM/qt-5.15.8-mem'
+- From shell execute below command to build Qt from sources, also provide installation path. for example '/opt/stuff/MEM/qt-5.15.8-mem'
 
 `./build_unix.sh /opt/stuff/MEM/qt-5.15.8-mem`
