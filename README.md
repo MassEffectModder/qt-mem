@@ -20,8 +20,8 @@ This is MSYS2 Qt5 package customised for MEM
 
 ### Installation using prebuilded package ###
  - Follow instructions in terminal:
- - Download package `wget https://www.dropbox.com/s/zbmin2s0vxlslr8/mingw-w64-x86_64-qt5-static-mem-5.15.8-1-any.pkg.tar.zst?dl=0 -O mingw-w64-x86_64-qt5-static-mem-5.15.8-1-any.pkg.tar.zst`
- - Install package `pacman -U mingw-w64-x86_64-qt5-static-mem-5.15.8-1-any.pkg.tar.zst`
+ - Download package `wget https://www.dropbox.com/s/0bwovc8si5ii8zl/mingw-w64-x86_64-qt5-static-mem-5.15.9-1-any.pkg.tar.zst?dl=0 -O mingw-w64-x86_64-qt5-static-mem-5.15.9-1-any.pkg.tar.zst`
+ - Install package `pacman -U mingw-w64-x86_64-qt5-static-mem-5.15.9-1-any.pkg.tar.zst`
 
 # Linux/macOS #
 The build script 'build_unix.sh' will compile Qt5 from sources.
@@ -41,4 +41,4 @@ The build script 'build_unix.sh' will compile Qt5 from sources.
 `wget https://raw.githubusercontent.com/MassEffectModder/qt-mem/master/build_unix.sh && chmod +x build_unix.sh`
 - From shell execute below command to build Qt from sources, also provide installation path. for example '/opt/stuff/MEM/qt-5.15.8-mem'
 
-`./build_unix.sh /opt/stuff/MEM/qt-5.15.8-mem`
+`./build_unix.sh /opt/stuff/MEM/qt-5.15.9-mem`
