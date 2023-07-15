@@ -1,7 +1,7 @@
 ### This is customised Qt5 for MEM ###
 
 # Windows #
-This is MSYS2 Qt5 package customised for MEM
+This is MSYS2 Qt6 package customised for MEM
 
 ### Requirements ###
  - MSYS2
@@ -14,14 +14,14 @@ This is MSYS2 Qt5 package customised for MEM
 ### Installation from sources ###
  - Follow instructions in terminal:
  - Clone repository `git clone https://github.com/MassEffectModder/qt-mem.git`
- - Copy 'qt-5.15' to home folder (this is important step to avoid too long paths) `cp -R qt-mem/qt-5.15 ~/`
- - Enter 'qt-5.15' directory `cd ~/qt-5.15`
- - Build package `MINGW_ARCH=mingw64 makepkg-mingw -fsiL`
+ - Copy 'qt-6.5' to home folder (this is important step to avoid too long paths) `cp -R qt-mem/qt-6.5 ~/`
+ - Enter 'qt-6.5' directory `cd ~/qt-6.5`
+ - Build package `MINGW_ARCH=clang64 makepkg-mingw -fsiL`
 
 ### Installation using prebuilded package ###
  - Follow instructions in terminal:
- - Download package `wget https://www.dropbox.com/s/2r6gp7x8gblj1k2/mingw-w64-x86_64-qt5-static-mem-5.15.10-2-any.pkg.tar.zst?dl=0 -O mingw-w64-x86_64-qt5-static-mem-5.15.10-2-any.pkg.tar.zst`
- - Install package `pacman -U mingw-w64-x86_64-qt5-static-mem-5.15.10-2-any.pkg.tar.zst`
+ - Download package `wget https://www.dropbox.com/scl/fi/7dn53ugojq7qx6e6f7nh8/mingw-w64-clang-x86_64-qt6-static-mem-6.5.1-1-any.pkg.tar.zst?rlkey=bw9phh1ki3kh4jxgf262iu9v6&dl=0 -O mingw-w64-clang-x86_64-qt6-static-mem-6.5.1-1-any.pkg.tar.zst`
+ - Install package `pacman -U mingw-w64-clang-x86_64-qt6-static-mem-6.5.1-1-any.pkg.tar.zst`
 
 # Linux/macOS #
 The build script 'build_unix.sh' will compile Qt6 from sources.
