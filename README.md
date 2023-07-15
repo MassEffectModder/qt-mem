@@ -24,10 +24,10 @@ This is MSYS2 Qt5 package customised for MEM
  - Install package `pacman -U mingw-w64-x86_64-qt5-static-mem-5.15.10-2-any.pkg.tar.zst`
 
 # Linux/macOS #
-The build script 'build_unix.sh' will compile Qt5 from sources.
+The build script 'build_unix.sh' will compile Qt6 from sources.
 
 ### Requirements Linux (Debian/Ubuntu) ###
-`sudo apt-get install build-essential perl python git '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev`
+`sudo apt-get install build-essential perl python git cmake ninja clang '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev`
 
 ### Requirements macOS ###
 - Xcode from AppStore or using below command from Terminal application:
@@ -39,6 +39,6 @@ The build script 'build_unix.sh' will compile Qt5 from sources.
 - From shell execute below command to download build script:
 
 `wget https://raw.githubusercontent.com/MassEffectModder/qt-mem/master/build_unix.sh && chmod +x build_unix.sh`
-- From shell execute below command to build Qt from sources, also provide installation path. for example '/opt/stuff/MEM/qt-5.15.10-mem'
+- From shell execute below command to build Qt from sources, also provide installation path. for example '/opt/stuff/MEM/qt-6.5.1-mem'
 
-`./build_unix.sh /opt/stuff/MEM/qt-5.15.10-mem`
+`./build_unix.sh /opt/stuff/MEM/qt-6.5.1-mem`
