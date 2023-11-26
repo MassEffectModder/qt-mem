@@ -14,14 +14,14 @@ This is MSYS2 Qt6 package customised for MEM
 ### Installation from sources ###
  - Follow instructions in terminal:
  - Clone repository `git clone https://github.com/MassEffectModder/qt-mem.git`
- - Copy 'qt-6.5' to home folder (this is important step to avoid too long paths) `cp -R qt-mem/qt-6.5 ~/`
- - Enter 'qt-6.5' directory `cd ~/qt-6.5`
+ - Copy 'qt-6.6' to home folder (this is important step to avoid too long paths) `cp -R qt-mem/qt-6.6 ~/`
+ - Enter 'qt-6.6' directory `cd ~/qt-6.6`
  - Build package `MINGW_ARCH=clang64 makepkg-mingw -fsiL`
 
 ### Installation using prebuilded package ###
  - Follow instructions in terminal:
- - Download package `wget https://www.dropbox.com/scl/fi/7dn53ugojq7qx6e6f7nh8/mingw-w64-clang-x86_64-qt6-static-mem-6.5.3-1-any.pkg.tar.zst?rlkey=bw9phh1ki3kh4jxgf262iu9v6&dl=0 -O mingw-w64-clang-x86_64-qt6-static-mem-6.5.3-1-any.pkg.tar.zst`
- - Install package `pacman -U mingw-w64-clang-x86_64-qt6-static-mem-6.5.3-1-any.pkg.tar.zst`
+ - Download package `wget https://www.dropbox.com/scl/fi/g4dapcgcf2s94vion04nc/mingw-w64-clang-x86_64-qt6-static-mem-6.6.0-1-any.pkg.tar.zst?rlkey=8z1f5fmqxlvpity92dykyrhi8&dl=0 -O mingw-w64-clang-x86_64-qt6-static-mem-6.6.0-1-any.pkg.tar.zst`
+ - Install package `pacman -U mingw-w64-clang-x86_64-qt6-static-mem-6.6.0-1-any.pkg.tar.zst`
 
 # Linux/macOS #
 The build script 'build_unix.sh' will compile Qt6 from sources.
@@ -40,6 +40,6 @@ The build script 'build_unix.sh' will compile Qt6 from sources.
 
 `wget https://raw.githubusercontent.com/MassEffectModder/qt-mem/master/build_unix.sh && chmod +x build_unix.sh`
 
-- From shell execute below command to build Qt from sources, also provide installation path. for example '/opt/stuff/MEM/qt-6.5.3-mem'
+- From shell execute below command to build Qt from sources, also provide installation path. for example '/opt/stuff/MEM/qt-6.6.0-mem'
 
-`./build_unix.sh /opt/stuff/MEM/qt-6.5.3-mem`
+`./build_unix.sh /opt/stuff/MEM/qt-6.6.0-mem`

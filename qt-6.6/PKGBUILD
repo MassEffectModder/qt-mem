@@ -1,0 +1,272 @@
+# This is fork of mingw-w64-qt6-static MSYS2 package file.
+
+# Contributor: Mehdi Chinoune <mehdi.chinoune@hotmail.com>
+
+_realname=qt6
+pkgbase=mingw-w64-${_realname}-static-mem
+pkgname=("${MINGW_PACKAGE_PREFIX}-${_realname}-static-mem")
+_qtver=6.6.0
+pkgver=${_qtver/-/}
+pkgrel=1
+arch=(any)
+mingw_arch=('mingw64' 'ucrt64' 'clang64' 'clangarm64')
+msys2_references=(
+  'archlinux: qt6-base'
+)
+url='https://www.qt.io'
+license=(spdx:LGPL-3.0-only WITH spdx:Qt-GPL-exception-1.0 AND spdx:GPL-2.0-or-later AND spdx:GPL-3.0-or-later)
+options=('!strip')
+pkgdesc="A cross-platform application and UI framework (mingw-w64-mem)"
+depends=("${MINGW_PACKAGE_PREFIX}-gcc-libs"
+         "${MINGW_PACKAGE_PREFIX}-cc"
+         "${MINGW_PACKAGE_PREFIX}-gdb"
+         "${MINGW_PACKAGE_PREFIX}-lldb"
+         "${MINGW_PACKAGE_PREFIX}-openmp"
+         "${MINGW_PACKAGE_PREFIX}-make"
+         "${MINGW_PACKAGE_PREFIX}-dbus"
+         "${MINGW_PACKAGE_PREFIX}-brotli"
+         "${MINGW_PACKAGE_PREFIX}-freetype"
+         "${MINGW_PACKAGE_PREFIX}-libjpeg-turbo"
+         "${MINGW_PACKAGE_PREFIX}-libpng"
+         "${MINGW_PACKAGE_PREFIX}-openssl"
+         "${MINGW_PACKAGE_PREFIX}-pcre2"
+         "${MINGW_PACKAGE_PREFIX}-zlib"
+         "make")
+optdepends=("${MINGW_PACKAGE_PREFIX}-clang: for lupdate and qdoc")
+makedepends=("${MINGW_PACKAGE_PREFIX}-cc"
+             "${MINGW_PACKAGE_PREFIX}-cmake"
+             "${MINGW_PACKAGE_PREFIX}-ninja"
+             "${MINGW_PACKAGE_PREFIX}-clang"
+             "${MINGW_PACKAGE_PREFIX}-clang-tools-extra"
+             "${MINGW_PACKAGE_PREFIX}-pkgconf"
+             "${MINGW_PACKAGE_PREFIX}-python"
+             "${MINGW_PACKAGE_PREFIX}-xmlstarlet"
+             "bison"
+             "flex"
+             "m4"
+             "patch"
+             "make"
+             "perl"
+             "rsync")
+_pkgfn="${_realname/6/}-everywhere-src-${_qtver}"
+_install_prefix=${MINGW_PREFIX}/qt6-static-mem
+source=("https://download.qt.io/official_releases/qt/${pkgver%.*}/${_qtver}/single/${_pkgfn}.tar.xz"
+        001-adjust-qmake-conf-mingw.patch
+        002-qt-6.2.0-win32-g-Add-QMAKE_EXTENSION_IMPORTLIB-defaulting-to-.patch
+        003-qt-6.2.0-dont-add-resource-files-to-qmake-libs.patch
+        004-Allow-overriding-CMAKE_FIND_LIBRARY_SUFFIXES-to-pref.patch
+        005-qt-6.2.0-win32static-cmake-link-ws2_32-and--static.patch
+        006-Fix-finding-D-Bus.patch
+        007-Fix-using-static-PCRE2-and-DBus-1.patch
+        008-Fix-libjpeg-workaround-for-conflict-with-rpcndr.h.patch
+        009-Fix-transitive-dependencies-of-static-libraries.patch
+        010-Support-finding-static-MariaDB-client-library.patch
+        011-Fix-crashes-in-rasterization-code-using-setjmp.patch
+        012-Handle-win64-in-dumpcpp-and-MetaObjectGenerator-read.patch
+        013-disable-finding-webp-from-cmake-config-files.patch
+        015-qt6-windeployqt-fixes.patch)
+sha256sums=('652538fcb5d175d8f8176c84c847b79177c87847b7273dccaec1897d80b50002'
+            '26f3bcc3729520a5ba648a9ce92a9293c8fb1cf16d81af612587ce10d501dcb6'
+            '48bcf7e4d5c6101d653d7bb0c1beae53ddc393d56a756cb3f246848ef0fabcc1'
+            'af3f4c6491942ee6a7681eecef2d999897e38fcef7a5edcf3774589f137dac73'
+            'fa73433aa123487562f365dd98735d44fb1effd38d13de4c0e33bd5f8e812396'
+            '554e979085f5deabd9f83637168c79f4929781434164d42dd14a8335a61d3cfc'
+            '5b3d7371b26ebcfc2a3d46a36db5dab4f50bb41b234d237021c32d21842a2880'
+            '92eae9347dac68c1dfdd79d97fa9ac257ebffcb3364cb7693342dce5a182823b'
+            '4b33eb1cd4cf43acd794bc5400a7224c96d6d0936f5589616beea3c470dc2165'
+            '394d723e894d08b0b8584c0c0e1e73965f518acc7213e979ffc2907ceaf4bf40'
+            '98a04c6fc0e7999f62db44a264ac73919dec4f56f2991ec5596e730d30662e55'
+            '474eb6643ae8139c41e90363c8846c52162cd858d863c195c0431594d351896d'
+            '39d57493b0edc1317729b88dad6a07b86936072f0fbbd2aae7b01e2211ce29ed'
+            'ce0023e8b72fe4b5840ca892bd5ad52120b6b484161bf2ffe0b6da9404625641'
+            '605ad15bc71a7b2d5b1c7a197a44e6251a0098f702f5411bf3e82a4966528132')
+
+# Use the right mkspecs file
+if [[ ${MINGW_PACKAGE_PREFIX} == *-clang-* ]]; then
+  _platform=win32-clang-g++
+else
+  _platform=win32-g++
+fi
+
+# Helper macros to help make tasks easier #
+apply_patch_with_msg() {
+  for _patch in "$@"
+  do
+    msg2 "Applying ${_patch}"
+    patch -Nbp1 -i "${srcdir}/${_patch}"
+  done
+}
+
+prepare() {
+  cd ${srcdir}
+
+  sleep 2
+  mv ${_pkgfn} qt${pkgver}
+  sleep 2
+
+  cd qt${pkgver}
+
+  apply_patch_with_msg \
+    001-adjust-qmake-conf-mingw.patch \
+    002-qt-6.2.0-win32-g-Add-QMAKE_EXTENSION_IMPORTLIB-defaulting-to-.patch \
+    003-qt-6.2.0-dont-add-resource-files-to-qmake-libs.patch \
+    004-Allow-overriding-CMAKE_FIND_LIBRARY_SUFFIXES-to-pref.patch \
+    005-qt-6.2.0-win32static-cmake-link-ws2_32-and--static.patch \
+    006-Fix-finding-D-Bus.patch \
+    007-Fix-using-static-PCRE2-and-DBus-1.patch \
+    008-Fix-libjpeg-workaround-for-conflict-with-rpcndr.h.patch \
+    009-Fix-transitive-dependencies-of-static-libraries.patch \
+    010-Support-finding-static-MariaDB-client-library.patch \
+    011-Fix-crashes-in-rasterization-code-using-setjmp.patch \
+    012-Handle-win64-in-dumpcpp-and-MetaObjectGenerator-read.patch \
+    013-disable-finding-webp-from-cmake-config-files.patch \
+    015-qt6-windeployqt-fixes.patch
+
+  local _ARCH_TUNE=
+  case ${MINGW_CHOST} in
+    i686*)
+      _ARCH_TUNE="-march=pentium4 -mtune=generic"
+    ;;
+    x86_64*)
+      _ARCH_TUNE="-march=nocona -msahf -mtune=generic"
+    ;;
+  esac
+
+  BIGOBJ_FLAGS="-Wa,-mbig-obj"
+
+  # Append these ones ..
+  sed -i "s|^QMAKE_CFLAGS .*= \(.*\)$|QMAKE_CFLAGS            = \1 ${_ARCH_TUNE} ${BIGOBJ_FLAGS}|g" qtbase/mkspecs/${_platform}/qmake.conf
+  sed -i "s|^QMAKE_CXXFLAGS .*= \(.*\)$|QMAKE_CXXFLAGS            = \1 ${_ARCH_TUNE} ${BIGOBJ_FLAGS}|g" qtbase/mkspecs/${_platform}/qmake.conf
+}
+
+build() {
+  mkdir -p B${MSYSTEM} && cd B${MSYSTEM}
+
+  MSYS2_ARG_CONV_EXCL="-DCMAKE_INSTALL_PREFIX=;-DCMAKE_CONFIGURATION_TYPES=;-DCMAKE_FIND_LIBRARY_SUFFIXES=" \
+  ${MINGW_PREFIX}/bin/cmake \
+    -Wno-dev \
+    --log-level=STATUS \
+    -G "Ninja" \
+    -DCMAKE_BUILD_TYPE="DebugAndRelease" \
+    -DCMAKE_FIND_LIBRARY_SUFFIXES_OVERRIDE=".a;.dll.a" \
+    -DCMAKE_EXE_LINKER_FLAGS="${LDFLAGS} -static -static-libgcc -static-libstdc++" \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DQT_QMAKE_TARGET_MKSPEC=${_platform} \
+    -DCMAKE_INSTALL_PREFIX=${_install_prefix} \
+    -DINSTALL_BINDIR=bin \
+    -DINSTALL_LIBDIR=lib \
+    -DINSTALL_INCLUDEDIR=include/qt6 \
+    -DINSTALL_ARCHDATADIR=share/qt6 \
+    -DINSTALL_DOCDIR=share/doc/qt6 \
+    -DINSTALL_DATADIR=share/qt6 \
+    -DINSTALL_MKSPECSDIR=share/qt6/mkspecs \
+    -DINSTALL_DESCRIPTIONSDIR=share/qt6/modules \
+    -DINSTALL_TESTSDIR=share/qt6/tests \
+    -DINSTALL_EXAMPLESDIR=share/doc/qt6/examples \
+    -DFEATURE_static_runtime=ON \
+    -DFEATURE_relocatable=ON \
+    -DFEATURE_openssl_linked=ON \
+    -DINPUT_openssl=linked \
+    -DINPUT_dbus=linked \
+    -DINPUT_mng=no \
+    -DINPUT_libmd4c=qt \
+    -DFEATURE_glib=OFF \
+    -DFEATURE_assimp=OFF \
+    -DFEATURE_system-doubleconversion=OFF \
+    -DFEATURE_system_freetype=ON \
+    -DFEATURE_system_harfbuzz=ON \
+    -DFEATURE_hunspell=OFF \
+    -DFEATURE_system_hunspell=OFF \
+    -DFEATURE_qt_jpeg=ON \
+    -DFEATURE_qt_pcre2=ON \
+    -DFEATURE_qt_png=ON \
+    -DFEATURE_system_sqlite=OFF \
+    -DFEATURE_tiff=OFF \
+    -DFEATURE_webp=OFF \
+    -DFEATURE_system_zlib=ON \
+    -DFEATURE_opengl=ON \
+    -DFEATURE_opengl_desktop=ON \
+    -DFEATURE_egl=OFF \
+    -DFEATURE_gstreamer=OFF \
+    -DFEATURE_icu=OFF \
+    -DFEATURE_fontconfig=OFF \
+    -DFEATURE_pkg_config=ON \
+    -DFEATURE_vulkan=OFF \
+    -DFEATURE_sql_ibase=OFF \
+    -DFEATURE_sql_psql=OFF \
+    -DFEATURE_sql_mysql=OFF \
+    -DFEATURE_sql_odbc=OFF \
+    -DFEATURE_zstd=OFF \
+    -DFEATURE_wmf=ON \
+    -DQT_BUILD_TESTS=OFF \
+    -DQT_BUILD_EXAMPLES=OFF \
+    -DBUILD_qt3d=OFF \
+    -DBUILD_qt5compat=OFF \
+    -DBUILD_qtactiveqt=OFF \
+    -DBUILD_qtcoap=OFF \
+    -DBUILD_qtcharts=OFF \
+    -DBUILD_qtconnectivit=OFF \
+    -DBUILD_qtdatavis3d=OFF \
+    -DBUILD_qtdeclarative=OFF \
+    -DBUILD_qtdoc=OFF \
+    -DBUILD_qtgrpc=OFF \
+    -DBUILD_qtgraphs=OFF \
+    -DBUILD_qthttpserver=OFF \
+    -DBUILD_qtgraphicaleffects=OFF \
+    -DBUILD_qttools=OFF \
+    -DBUILD_qtlocation=OFF \
+    -DBUILD_qtlottie=OFF \
+    -DBUILD_qtmqtt=OFF \
+    -DBUILD_qtmultimedia=OFF \
+    -DBUILD_qtnetworkauth=OFF \
+    -DBUILD_qtopcua=OFF \
+    -DBUILD_qtpositioning=OFF \
+    -DBUILD_qtquick3d=OFF \
+    -DBUILD_qtquick3dphysics=OFF \
+    -DBUILD_qtquickeffectmaker=OFF \
+    -DBUILD_qtquicktimeline=OFF \
+    -DBUILD_qtremoteobjects=OFF \
+    -DBUILD_qtscxml=OFF \
+    -DBUILD_qtsensors=OFF \
+    -DBUILD_qtserialbus=OFF \
+    -DBUILD_qtserialport=OFF \
+    -DBUILD_qtshadertools=OFF \
+    -DBUILD_qtspeech=OFF \
+    -DBUILD_qtsvg=OFF \
+    -DBUILD_qttools=OFF \
+    -DBUILD_qttranslations=OFF \
+    -DBUILD_qtvirtualkeyboard=OFF \
+    -DBUILD_qtwayland=OFF \
+    -DBUILD_qtwebchannel=OFF \
+    -DBUILD_qtwebengine=OFF \
+    -DBUILD_qtwebsockets=OFF \
+    -DBUILD_qtwebview=OFF \
+    -DOPENSSL_DEPENDENCIES="-lws2_32;-lgdi32;-lcrypt32" \
+    -DLIBPNG_DEPENDENCIES="-lz" \
+    -DGLIB2_DEPENDENCIES="-lintl;-lws2_32;-lole32;-lwinmm;-lshlwapi;-lm" \
+    -DFREETYPE_DEPENDENCIES="-lbz2;-lharfbuzz;-lfreetype;-lbrotlidec;-lbrotlicommon" \
+    -DHARFBUZZ_DEPENDENCIES="-lglib-2.0;-lintl;-lws2_32;-lusp10;-lgdi32;-lole32;-lwinmm;-lshlwapi;-lintl;-lm;-lfreetype;-lgraphite2;-lrpcrt4" \
+    -DDBUS1_DEPENDENCIES="-lws2_32;-liphlpapi;-ldbghelp" \
+    -DPython_EXECUTABLE=${MINGW_PREFIX}/bin/python \
+    ../qt${pkgver}
+
+  export PATH=$PWD/bin:$PATH
+
+  ${MINGW_PREFIX}/bin/cmake --build .
+}
+
+package() {
+  DESTDIR=${pkgdir} ${MINGW_PREFIX}/bin/cmake --install B${MSYSTEM}
+
+  install -d "${pkgdir}"${_install_prefix}/share/licenses/${_realname}
+  install -Dm644 qt${pkgver}/LICENSE* -t "${pkgdir}"${_install_prefix}/share/licenses/${_realname}
+
+  # Fix *.pri, *.bat and *.cmake files
+  local PREFIX_WIN=$(cygpath -m ${MINGW_PREFIX})
+  find "${pkgdir}${_install_prefix}/share/qt6" -type f \( -name '*.pri' -o -name '*.bat' \) \
+      -exec sed -i -e "s|${PREFIX_WIN}|${MINGW_PREFIX}|g" {} \;
+  find "${pkgdir}${_install_prefix}/bin" -type f \( -name '*.bat' \) \
+      -exec sed -i -e "s|${PREFIX_WIN}|${MINGW_PREFIX}|g" {} \;
+  find "${pkgdir}${_install_prefix}/lib/cmake" -type f \( -name '*.cmake' \) \
+      -exec sed -i -e "s|${PREFIX_WIN}|${MINGW_PREFIX}|g" {} \;
+}
