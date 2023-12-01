@@ -5,7 +5,7 @@
 _realname=qt6
 pkgbase=mingw-w64-${_realname}-static-mem
 pkgname=("${MINGW_PACKAGE_PREFIX}-${_realname}-static-mem")
-_qtver=6.6.0
+_qtver=6.6.1
 pkgver=${_qtver/-/}
 pkgrel=1
 arch=(any)
@@ -14,7 +14,7 @@ msys2_references=(
   'archlinux: qt6-base'
 )
 url='https://www.qt.io'
-license=(spdx:LGPL-3.0-only WITH spdx:Qt-GPL-exception-1.0 AND spdx:GPL-2.0-or-later AND spdx:GPL-3.0-or-later)
+license=('spdx:LGPL-3.0-only WITH Qt-GPL-exception-1.0 AND GPL-2.0-or-later AND GPL-3.0-or-later')
 options=('!strip')
 pkgdesc="A cross-platform application and UI framework (mingw-w64-mem)"
 depends=("${MINGW_PACKAGE_PREFIX}-gcc-libs"
@@ -65,7 +65,7 @@ source=("https://download.qt.io/official_releases/qt/${pkgver%.*}/${_qtver}/sing
         012-Handle-win64-in-dumpcpp-and-MetaObjectGenerator-read.patch
         013-disable-finding-webp-from-cmake-config-files.patch
         015-qt6-windeployqt-fixes.patch)
-sha256sums=('652538fcb5d175d8f8176c84c847b79177c87847b7273dccaec1897d80b50002'
+sha256sums=('dd3668f65645fe270bc615d748bd4dc048bd17b9dc297025106e6ecc419ab95d'
             '26f3bcc3729520a5ba648a9ce92a9293c8fb1cf16d81af612587ce10d501dcb6'
             '48bcf7e4d5c6101d653d7bb0c1beae53ddc393d56a756cb3f246848ef0fabcc1'
             'af3f4c6491942ee6a7681eecef2d999897e38fcef7a5edcf3774589f137dac73'
@@ -259,7 +259,7 @@ package() {
   DESTDIR=${pkgdir} ${MINGW_PREFIX}/bin/cmake --install B${MSYSTEM}
 
   install -d "${pkgdir}"${_install_prefix}/share/licenses/${_realname}
-  install -Dm644 qt${pkgver}/LICENSE* -t "${pkgdir}"${_install_prefix}/share/licenses/${_realname}
+  install -Dm644 qt${pkgver}/LICENSES/* -t "${pkgdir}"${_install_prefix}/share/licenses/${_realname}
 
   # Fix *.pri, *.bat and *.cmake files
   local PREFIX_WIN=$(cygpath -m ${MINGW_PREFIX})

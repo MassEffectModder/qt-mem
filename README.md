@@ -20,8 +20,8 @@ This is MSYS2 Qt6 package customised for MEM
 
 ### Installation using prebuilded package ###
  - Follow instructions in terminal:
- - Download package `wget https://www.dropbox.com/scl/fi/g4dapcgcf2s94vion04nc/mingw-w64-clang-x86_64-qt6-static-mem-6.6.0-1-any.pkg.tar.zst?rlkey=8z1f5fmqxlvpity92dykyrhi8&dl=0 -O mingw-w64-clang-x86_64-qt6-static-mem-6.6.0-1-any.pkg.tar.zst`
- - Install package `pacman -U mingw-w64-clang-x86_64-qt6-static-mem-6.6.0-1-any.pkg.tar.zst`
+ - Download package `wget https://www.dropbox.com/scl/fi/cn0qb7vwb3nldugsl8ryf/mingw-w64-clang-x86_64-qt6-static-mem-6.6.1-1-any.pkg.tar.zst?rlkey=nwarhksu1hv798ma59s8ebwqj&dl=0 -O mingw-w64-clang-x86_64-qt6-static-mem-6.6.1-1-any.pkg.tar.zst`
+ - Install package `pacman -U mingw-w64-clang-x86_64-qt6-static-mem-6.6.1-1-any.pkg.tar.zst`
 
 # Linux/macOS #
 The build script 'build_unix.sh' will compile Qt6 from sources.
@@ -40,6 +40,6 @@ The build script 'build_unix.sh' will compile Qt6 from sources.
 
 `wget https://raw.githubusercontent.com/MassEffectModder/qt-mem/master/build_unix.sh && chmod +x build_unix.sh`
 
-- From shell execute below command to build Qt from sources, also provide installation path. for example '/opt/stuff/MEM/qt-6.6.0-mem'
+- From shell execute below command to build Qt from sources, also provide installation path. for example '/opt/stuff/MEM/qt-6.6.1-mem'
 
-`./build_unix.sh /opt/stuff/MEM/qt-6.6.0-mem`
+`./build_unix.sh /opt/stuff/MEM/qt-6.6.1-mem`
