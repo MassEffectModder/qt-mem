@@ -3,7 +3,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2021-2023 Pawel Kolodziejski
+# Copyright (c) 2021-2024 Pawel Kolodziejski
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -57,7 +57,7 @@ case `uname -s` in
 		NUM_THREADS=`grep -c '^processor' /proc/cpuinfo`
 	;;
 	'Darwin')
-		COMMON_OPTS="$COMMON_OPTS -DQT_QMAKE_TARGET_MKSPEC=macx-clang -DFEATURE_glib=OFF -DINPUT_freeetype=qt"
+		COMMON_OPTS="$COMMON_OPTS -DQT_QMAKE_TARGET_MKSPEC=macx-clang -DFEATURE_glib=OFF -DINPUT_freeetype=qt -DCMAKE_OSX_ARCHITECTURES=\"x86_64h;arm64\""
 		NUM_THREADS=`sysctl -n hw.ncpu`
 	;;
 esac
@@ -84,6 +84,6 @@ if [ ! -d "qt-everywhere-src-$QT_VERSION" ]; then
 fi
 
 pushd qt-everywhere-src-$QT_VERSION
-cmake $COMMON_OPTS -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH}-release && cmake --build . --parallel $NUM_THREADS && cmake --install .
-cmake $COMMON_OPTS -DCMAKE_BUILD_TYPE=Debug   -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH}-debug   && cmake --build . --parallel $NUM_THREADS && cmake --install .
+./configure -- $COMMON_OPTS -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH}-release && cmake --build . --parallel $NUM_THREADS && cmake --install .
+./configure -- $COMMON_OPTS -DCMAKE_BUILD_TYPE=Debug   -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH}-debug   && cmake --build . --parallel $NUM_THREADS && cmake --install .
 popd
