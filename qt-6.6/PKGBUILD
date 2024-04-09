@@ -5,18 +5,19 @@
 _realname=qt6
 pkgbase=mingw-w64-${_realname}-static-mem
 pkgname=("${MINGW_PACKAGE_PREFIX}-${_realname}-static-mem")
-_qtver=6.6.2
+_qtver=6.6.3
 pkgver=${_qtver/-/}
 pkgrel=1
+pkgdesc="A cross-platform application and UI framework (mingw-w64-mem)"
 arch=(any)
 mingw_arch=('mingw64' 'ucrt64' 'clang64' 'clangarm64')
+url='https://www.qt.io'
 msys2_references=(
   'archlinux: qt6-base'
+  "cpe: cpe:/a:qt:qt"
 )
-url='https://www.qt.io'
 license=('spdx:LGPL-3.0-only WITH Qt-GPL-exception-1.0 AND GPL-2.0-or-later AND GPL-3.0-or-later')
 options=('!strip')
-pkgdesc="A cross-platform application and UI framework (mingw-w64-mem)"
 depends=("${MINGW_PACKAGE_PREFIX}-gcc-libs"
          "${MINGW_PACKAGE_PREFIX}-cc"
          "${MINGW_PACKAGE_PREFIX}-gdb"
@@ -71,11 +72,11 @@ source=("https://download.qt.io/official_releases/qt/${pkgver%.*}/${_qtver}/sing
         012-Handle-win64-in-dumpcpp-and-MetaObjectGenerator-read.patch
         013-disable-finding-webp-from-cmake-config-files.patch
         015-qt6-windeployqt-fixes.patch)
-sha256sums=('3c1e42b3073ade1f7adbf06863c01e2c59521b7cc2349df2f74ecd7ebfcb922d'
+sha256sums=('69d0348fef415da98aa890a34651e9cfb232f1bffcee289b7b4e21386bf36104'
             '26f3bcc3729520a5ba648a9ce92a9293c8fb1cf16d81af612587ce10d501dcb6'
-            '48bcf7e4d5c6101d653d7bb0c1beae53ddc393d56a756cb3f246848ef0fabcc1'
+            '817ce7a15eafb945da5f03706cd7196198c9a903c0372cb7023d1e27634355a4'
             'af3f4c6491942ee6a7681eecef2d999897e38fcef7a5edcf3774589f137dac73'
-            '599c15ccdb6e0289c51e7cc9c35f511ff88ab2dfd6aa5461031dd2eec68b02ef'
+            '9b64d5a03ba6155d16c8105b8dd4bdc7d687170df8e0d5404b4b10292549bde2'
             '554e979085f5deabd9f83637168c79f4929781434164d42dd14a8335a61d3cfc'
             '5b3d7371b26ebcfc2a3d46a36db5dab4f50bb41b234d237021c32d21842a2880'
             '92eae9347dac68c1dfdd79d97fa9ac257ebffcb3364cb7693342dce5a182823b'

@@ -13,7 +13,7 @@ diff --git a/qtbase/cmake/QtBuildInternals/QtBuildInternalsConfig.cmake b/qtbase
 index 89c13afe01..6a21b6e266 100644
 --- a/qtbase/cmake/QtBuildInternals/QtBuildInternalsConfig.cmake
 +++ b/qtbase/cmake/QtBuildInternals/QtBuildInternalsConfig.cmake
-@@ -1,6 +1,10 @@
+@@ -4,6 +4,10 @@
  # These values should be kept in sync with those in qtbase/.cmake.conf
  cmake_minimum_required(VERSION 3.16...3.21)
  
