@@ -42,4 +42,4 @@ The build script 'build_unix.sh' will compile Qt6 from sources.
 
 - From shell execute below command to build Qt from sources, also provide installation path. for example '/opt/stuff/MEM/qt-6.6.3-mem'
 
-`./build_unix.sh /opt/stuff/MEM/qt-6.6.1-mem`
+`./build_unix.sh /opt/stuff/MEM/qt-6.6.3-mem`
