@@ -59,7 +59,7 @@ case `uname -s` in
 		NUM_THREADS=`grep -c '^processor' /proc/cpuinfo`
 	;;
 	'Darwin')
-		COMMON_OPTS="$COMMON_OPTS -DQT_QMAKE_TARGET_MKSPEC=macx-clang -DFEATURE_glib=OFF -DINPUT_freeetype=qt -DCMAKE_OSX_ARCHITECTURES=\"x86_64h;arm64\""
+		COMMON_OPTS="$COMMON_OPTS -DQT_QMAKE_TARGET_MKSPEC=macx-clang -DFEATURE_glib=OFF -DINPUT_freeetype=qt"
 		NUM_THREADS=`sysctl -n hw.ncpu`
 	;;
 esac
