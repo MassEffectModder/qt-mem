@@ -3,7 +3,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2021-2024 Pawel Kolodziejski
+# Copyright (c) 2021-2025 Pawel Kolodziejski
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-QT_VERSION=6.7.3
+QT_VERSION=6.8.3
 QT_VERSION_BASE=`echo $QT_VERSION | cut -d'.' -f 1,2`
 
 NUM_THREADS=1
@@ -37,7 +37,7 @@ COMMON_OPTS="\
 -DINPUT_zlib=qt -DINPUT_pcre=qt -DINPUT_libpng=qt -DINPUT_libjpeg=qt -DINPUT_doubleconversion=qt \
 -DINPUT_harfbuzz=qt -DINPUT_opengl=OFF -DFEATURE_dbus=OFF -DFEATURE_icu=OFF -DFEATURE_cups=OFF \
 -DFEATURE_gif=OFF -DFEATURE_ico=OFF -DFEATURE_eglfs=OFF -DFEATURE_gbm=OFF -DFEATURE_tiff=OFF \
--DFEATURE_webp=OFF -DFEATURE_journald=OFF -DFEATURE_syslog=OFF -DFEATURE_mimetype-database=OFF \
+-DFEATURE_webp=OFF -DFEATURE_journald=OFF -DFEATURE_syslog=OFF \
 -DFEATURE_slog2=OFF -DFEATURE_feature-relocatable=OFF -DFEATURE_opengl=OFF \
 -DQT_BUILD_TESTS=OFF -DQT_BUILD_EXAMPLES=OFF \
 -DBUILD_qt3d=OFF -DBUILD_qt5compat=OFF -DBUILD_qtactiveqt=OFF -DBUILD_qtcoap=OFF -DBUILD_qtcharts=OFF \
