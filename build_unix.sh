@@ -3,7 +3,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2021-2025 Pawel Kolodziejski
+# Copyright (c) 2021-2026 Pawel Kolodziejski
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-QT_VERSION=6.8.3
+QT_VERSION=6.9.3
 QT_VERSION_BASE=`echo $QT_VERSION | cut -d'.' -f 1,2`
 
 NUM_THREADS=1
