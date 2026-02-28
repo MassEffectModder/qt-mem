@@ -1,4 +1,4 @@
-### This is customised Qt5 for MEM ###
+### This is customised Qt6 for MEM ###
 
 # Windows #
 This is MSYS2 Qt6 package customised for MEM
@@ -14,14 +14,14 @@ This is MSYS2 Qt6 package customised for MEM
 ### Installation from sources ###
  - Follow instructions in terminal:
  - Clone repository `git clone https://github.com/MassEffectModder/qt-mem.git`
- - Copy 'qt-6.8' to home folder (this is important step to avoid too long paths) `cp -R qt-mem/qt-6.8 ~/`
- - Enter 'qt-6.8' directory `cd ~/qt-6.8`
+ - Copy 'qt-6.9' to home folder (this is important step to avoid too long paths) `cp -R qt-mem/qt-6.9 ~/`
+ - Enter 'qt-6.9' directory `cd ~/qt-6.9`
  - Build package `MINGW_ARCH=clang64 makepkg-mingw -fsiL`
 
 ### Installation using prebuilded package ###
  - Follow instructions in terminal:
- - Download package `wget https://www.dropbox.com/scl/fi/7i0bmmvgpu4s6p277poov/mingw-w64-clang-x86_64-qt6-static-mem-6.8.3-1-any.pkg.tar.zst?rlkey=0bi5p484sb3e4o8mmxi4cnpic&dl=0 -O mingw-w64-clang-x86_64-qt6-static-mem-6.8.3-1-any.pkg.tar.zst`
- - Install package `pacman -U mingw-w64-clang-x86_64-qt6-static-mem-6.7.3-1-any.pkg.tar.zst`
+ - Download package `wget https://www.dropbox.com/scl/fi/sz1cotpg76xhzccahmpek/mingw-w64-clang-x86_64-qt6-static-mem-6.9.3-1-any.pkg.tar.zst?rlkey=gz1vj8r8o1prulq0pv0jljt49&dl=0 -O mingw-w64-clang-x86_64-qt6-static-mem-6.9.3-1-any.pkg.tar.zst`
+ - Install package `pacman -U mingw-w64-clang-x86_64-qt6-static-mem-6.9.3-1-any.pkg.tar.zst`
 
 # Linux/macOS #
 The build script 'build_unix.sh' will compile Qt6 from sources.
@@ -40,6 +40,6 @@ The build script 'build_unix.sh' will compile Qt6 from sources.
 
 `wget https://raw.githubusercontent.com/MassEffectModder/qt-mem/master/build_unix.sh && chmod +x build_unix.sh`
 
-- From shell execute below command to build Qt from sources, also provide installation path. for example '/opt/stuff/MEM/qt-6.8.3-mem'
+- From shell execute below command to build Qt from sources, also provide installation path. for example '/opt/stuff/MEM/qt-6.9.3-mem'
 
-`./build_unix.sh /opt/stuff/MEM/qt-6.8.3-mem`
+`./build_unix.sh /opt/stuff/MEM/qt-6.9.3-mem`
