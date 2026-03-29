@@ -23,7 +23,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-QT_VERSION=6.9.3
+QT_VERSION=6.10.3
 QT_VERSION_BASE=`echo $QT_VERSION | cut -d'.' -f 1,2`
 
 NUM_THREADS=1
@@ -39,7 +39,7 @@ COMMON_OPTS="\
 -DFEATURE_gif=OFF -DFEATURE_ico=OFF -DFEATURE_eglfs=OFF -DFEATURE_gbm=OFF -DFEATURE_tiff=OFF \
 -DFEATURE_webp=OFF -DFEATURE_journald=OFF -DFEATURE_syslog=OFF -DFEATURE_testlib=OFF \
 -DFEATURE_printsupport=OFF -DFEATURE_slog2=OFF -DFEATURE_opengl=OFF -DFEATURE_concurrent=OFF \
--DQT_BUILD_TESTS=OFF -DQT_BUILD_EXAMPLES=OFF \
+-DFEATURE_sql=OFF -DQT_BUILD_TESTS=OFF -DQT_BUILD_EXAMPLES=OFF \
 -DBUILD_qt3d=OFF -DBUILD_qt5compat=OFF -DBUILD_qtactiveqt=OFF -DBUILD_qtcoap=OFF -DBUILD_qtcharts=OFF \
 -DBUILD_qtconnectivity=OFF -DBUILD_qtdatavis3d=OFF -DBUILD_qtdeclarative=OFF -DBUILD_qtdoc=OFF \
 -DBUILD_qtgrpc=OFF -DBUILD_qtgraphs=OFF -DBUILD_qthttpserver=OFF \
@@ -55,7 +55,7 @@ COMMON_OPTS="\
 case `uname -s` in
 	'Linux')
 		COMMON_OPTS="$COMMON_OPTS -DQT_QMAKE_TARGET_MKSPEC=linux-clang -DFEATURE_glib=ON -DFEATURE_system_freetype=ON \
-                             -DFEATURE_system_fontconfig=ON -DINPUT_qpa=xcb -DFEATURE_xcb=ON -DFEATURE_xcb-native-painting=ON"
+                             -DFEATURE_system_fontconfig=ON -DINPUT_qpa=xcb -DFEATURE_xcb=ON"
 		NUM_THREADS=`grep -c '^processor' /proc/cpuinfo`
 	;;
 	'Darwin')
